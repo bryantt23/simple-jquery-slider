@@ -25,7 +25,7 @@ $(document).ready(function() {
   // set up our timer using the jQuery setInterval function.
   // It takes two parameters, the function that it calls and the speed.
   // So this will call the changePosition function
-  // (which in turn calls the moveSlide function) every 6 seconds.
+  // (which in turn calls the moveSlide function) every 2 seconds.
   slideShowInterval = setInterval(changePosition, speed);
 
 
@@ -35,6 +35,8 @@ $(document).ready(function() {
   // This div will hold all the slides and
   // allow the float:left property to work.
   slides.wrapAll('<div id="slidesHolder"></div>')
+  // The wrapAll() method wraps specified HTML element(s)
+  // around all selected elements.
 
 
   // Now we need to float the slides so they line up side by side.
