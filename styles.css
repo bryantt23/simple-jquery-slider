@@ -15,10 +15,16 @@ body {
   background-color:lightgray;
 }
 
+#disappear {
+  color: purple;
+  font-family:courier;
+  font-size:100%;
+}
+
 
 /*
 this is basically the window we look through
-to see the slides 
+to see the slides
 */
 #slideshow #slideshowWindow {
 	width:500px;
@@ -26,9 +32,18 @@ to see the slides
 	margin:0;
 	padding:0;
 	position:relative;
+
+  /*hidden overflow is important
+  i guess anything over flows gets hidden
+  */
 	overflow:hidden;
 }
 
+/*
+holds only 1 slide and
+content associated with that slide i.e.
+title, description, link
+*/
 #slideshow #slideshowWindow .slide {
 	margin:0;
 	padding:0;
