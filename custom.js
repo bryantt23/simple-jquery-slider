@@ -54,6 +54,60 @@ $(document).ready(function() {
   $('#slidesHolder').css('width', slideWidth * numberOfSlides);
 
 
+
+  // add button graphics to our slideshow with jQuery because if
+  // the user doesn't have JavaScript available on their browser,
+  // the buttons won't do anything so we don't want the user to
+  // see them if that is the case.
+  // This way they'll only display if JQuery is available.
+
+  // Add the buttons to the DOM so they're ready for
+  // use straight away on load.
+  $('#slideshow')
+  .prepend('<span class="nav" id="leftNav">Move Left</span>')
+  .append('<span class="nav" id="rightNav">Move Right</span>');
+
+
+  // call function to show left & right buttons
+  manageNav(currentPosition);
+
+
+
+  //tell the buttons what to do when clicked
+  $('.nav').bind('click', function() {
+    //determine new position
+    // this is a ternary function,
+    // if the right is clicked then currentPosition++, otherwise currentPosition--
+    currentPosition = ($(this).attr('id')=='rightNav')
+    ? currentPosition+1 : currentPosition-1;
+
+    //hide/show controls
+
+    // call function to show left & right buttons
+    manageNav(currentPosition);
+
+    // clears the time
+    clearInterval(slideShowInterval);
+
+    // set up our timer using the jQuery setInterval function.
+    slideShowInterval = setInterval(changePosition, speed);
+    moveSlide();
+  });
+
+
+    // to show the left and right buttons
+    function manageNav(position) {
+      //hide left arrow if position is first slide
+      if(position==0){ $('#leftNav').hide() }
+      else { $('#leftNav').show() }
+      //hide right arrow is slide position is last slide
+      if(position==numberOfSlides-1){ $('#rightNav').hide() }
+      else { $('#rightNav').show() }
+    }
+
+
+
+
   // So now we need to move the slides from one to the other.
   // We will require two functions.
   // The first function will determine how far along
@@ -64,8 +118,12 @@ $(document).ready(function() {
   function changePosition() {
     if(currentPosition == numberOfSlides - 1) {
       currentPosition = 0;
+      // call the manageNav function every time the slide changes
+      manageNav(currentPosition);
     } else {
       currentPosition++;
+      // call the manageNav function every time the slide changes
+      manageNav(currentPosition);
     }
     moveSlide();
   }
@@ -82,6 +140,8 @@ $(document).ready(function() {
     $('#slidesHolder')
     .animate({'marginLeft' : slideWidth*(-currentPosition)});
   }
+
+
 
 
   $("#hide").click(function(){

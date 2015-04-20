@@ -22,6 +22,10 @@ body {
 }
 
 
+#slideshow {
+	position:relative;
+}
+
 /*
 this is basically the window we look through
 to see the slides
@@ -32,12 +36,10 @@ to see the slides
 	margin:0;
 	padding:0;
 	position:relative;
-
+	overflow:hidden;
   /*hidden overflow is important
   i guess anything over flows gets hidden
-  */
-	overflow:hidden;
-  /*remove this to see how things actually move*/
+  remove this to see how things actually move*/
 }
 
 /*
@@ -50,7 +52,6 @@ title, description, link
 	padding:0;
 	width:500px;
 	height:257px;
-	float:left;
 	position:relative;
 }
 
@@ -68,14 +69,41 @@ title, description, link
 	font-family:Myriad Pro, Arial, Helvetica, sans-serif;
 }
 
-#slideshow #slideshowWindow .slide .slideText a:link,
-#slideshow #slideshowWindow .slide .slideText a:visited {
+#slideshow #slideshowWindow .slide .slideText a:link, #slideshow #slideshowWindow .slide .slideText a:visited {
 	color:#ffffff;
 	text-decoration:none;
 }
 
-#slideshow #slideshowWindow .slide .slideText h2,
-#slideshow #slideshowWindow .slide .slideText p {
+#slideshow #slideshowWindow .slide .slideText h2, #slideshow #slideshowWindow .slide .slideText p {
 	margin:10px 0 0 10px;
 	padding:0;
+	color:#fff;
+}
+
+/*Navigation*/
+.nav {
+	display:block;
+	text-indent:-10000px;
+	position:absolute;
+	cursor:pointer;
+}
+
+#leftNav {
+	top:228px;
+	left:350px;
+	width:94px;
+	height:34px;
+	background-image:url(previous.png);
+	background-repeat:no-repeat;
+	z-index:999;
+}
+
+#rightNav {
+	top:230px;
+	left:450px;
+	width:53px;
+	height:26px;
+	background-image:url(next.png);
+	background-repeat:no-repeat;
+	z-index:999;
 }
