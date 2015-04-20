@@ -4,6 +4,7 @@ h1 {
   font-family:verdana;
   font-size:300%;
 }
+
 p  {
   color:red;
   font-family:courier;
@@ -12,4 +13,27 @@ p  {
 
 body {
   background-color:lightgray;
+}
+
+
+/*
+this is basically the window we look through
+to see the slides 
+*/
+#slideshow #slideshowWindow {
+	width:500px;
+	height:257px;
+	margin:0;
+	padding:0;
+	position:relative;
+	overflow:hidden;
+}
+
+#slideshow #slideshowWindow .slide {
+	margin:0;
+	padding:0;
+	width:500px;
+	height:257px;
+	float:left;
+	position:relative;
 }
